@@ -1,0 +1,520 @@
+/* --------------------------------------------------
+   RESET & GLOBAL
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Grey */
+    --success-color: #28a745; /* Green */
+    --warning-color: #ffc107; /* Yellow */
+    --danger-color: #dc3545; /* Red */
+    --text-color: #333;
+    --background-color: #feebff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: #000000;
+  overflow-x: hidden;
+}
+  
+/* --------------------------------------------------
+   HEADER (logo/email)
+-------------------------------------------------- */
+
+header {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+.header-content {
+  text-align: center;
+}
+
+.logo-container {
+  display: inline-block;
+  text-align: center;
+}
+
+.logo {
+  width: 118px; /* Replace with your real logo */
+  height: auto;
+  object-fit: contain;
+}
+
+/*.email {
+  margin-top: 2px;
+  font-size:-18px;
+  color: #555555;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------
+   INTRO SECTION (First big text)
+   ↓ Reduced margin-top from 18px → 11px (25% smaller)
+-------------------------------------------------- */
+.intro {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.intro-heading {
+  font-size: 118px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  color: #272727;
+  text-transform: uppercase;
+}
+
+
+/* Centered 3‑Item Carousel Styles */
+.carousel-container {
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* adjust height as needed */
+}
+.carousel-track-container {
+  position: relative;
+  /* overflow: hidden;*/
+  /* 3 × 300px cards + 2 × 20px gaps = 940px total */
+  width: calc((300px * 3) + (5px * 2));
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.carousel-track {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-slide {
+  margin: 3px;
+  min-width: 300px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+.carousel-slide.current-slide .card {
+  position: relative;
+  --card-scale: 1.6;
+
+}
+
+.carousel-slide:not(.current-slide) .card {
+  position: relative;
+  --card-scale: 1;
+
+}
+
+
+/* If you still want arrows overlayed, leave these */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #da54ff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 1.5rem;
+  color: #feebff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+.carousel-btn:hover {
+  background: #feebff;
+  color: #da54ff;
+}
+.carousel-btn.prev { left: 300px; }
+.carousel-btn.next { right: 300px; }
+
+/* Each card is 300×300px */
+.card {
+  position: relative;
+  overflow: visible;
+  width: 300px;
+  height: 300px;
+  border-color: #e0c1e9;
+  border-style: solid;
+  border-width: 4px; 
+  border-radius: 18px;
+  background-color: #e0c1e9;
+  box-shadow: 0 18px 80px rgba(0,0,0,0.30);
+  cursor: pointer;
+  /* NEW: composite transform via vars */
+  --card-rotate: 0deg;
+  --card-scale: 1;
+  transform: rotate(var(--card-rotate)) scale(var(--card-scale));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Intensified shadow on hover; transform handled in JS */
+.card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.20);
+}
+
+/* Full-card placeholder image */
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: contain;      /* fit the whole image inside */
+}
+
+/* Niche label in bottom-left */
+.card-text {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #feebff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* --------------------------------------------------
+   FEATURES SECTION (Second big text, two lines)
+   ↓ Reduced margin-top from 80px → 60px (25% smaller)
+-------------------------------------------------- */
+.features {
+  margin-top: 60px;  /* Was 80px, now 60px */
+  text-align: center;
+}
+
+.features-heading {
+  font-size: 72px;
+  font-weight: 800;
+  color: #e0c1e9;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  
+}
+.features a {
+  text-decoration: none;
+}
+
+.highlight {
+  color: #da54ff;                
+}
+.features a:hover .highlight {
+  color: #e0c1e9; /* Purple color */
+}
+
+/* Arrow style */
+.arrow-link {
+  display: block;
+  text-align: center;
+  position: fixed;
+  bottom: 30px;  /* Adjust this to control the arrow's vertical position */
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.arrow {
+  font-size: 32px;
+  color: #DA54FF; /* Purple color */
+}
+.arrow-link:hover .arrow {
+  color: #e0c1e9; /* Same purple color on hover */
+}
+
+
+
+/*Counting Views*/
+    .couting-views {
+      position: relative; /* so the images are positioned relative to this container */
+      margin-top: 250px;
+      margin-bottom: 400px;
+      margin-left: 95px;
+      text-align: center;
+      text-transform: uppercase;     
+      user-select: none;
+    }
+
+    .views-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    pointer-events: none;
+    }
+
+    .subtext {
+    font-size: 50px;
+    text-align: center;
+    font-weight: 800;
+    color: #dfb1dc;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+    z-index: 2;
+    
+  
+}
+
+
+    .number-line {
+      z-index: 2;
+    }
+
+    .main-number {
+      
+      font-family:sans-serif;
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -4px;
+      font-size: 180px;
+      color: #272727;
+     
+    }
+
+    .views {
+      font-size: 50px;
+      color: #dfb1dc;
+      font-weight: 800;
+      margin-left: 10px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+      
+    }
+
+    .floating-pic {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.75;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect */
+.floating-pic:hover {
+  transform: scale(1.1) rotate(0deg);
+  opacity: 1;
+}
+
+/* Custom positions and rotations for each */
+.pic1 {
+  top: -50px;
+  left: 20%;
+  transform: rotate(-15deg);
+  border: 4px solid rgb(101, 237, 255); /* Change color if needed */
+
+}
+
+.pic2 {
+  top: -20px;
+  left: 70%;
+  transform: rotate(10deg);
+  border: 4px solid rgb(101, 150, 255); /* Change color if needed */
+} 
+
+.pic3 {
+  top: 150px;
+  left: 10%;
+  transform: rotate(-5deg);
+  border: 4px solid rgb(250, 116, 232); /* Change color if needed */
+}
+
+.pic4 {
+  top: 170px;
+  left: 80%;
+  transform: rotate(20deg);
+  border: 4px solid rgb(255, 188, 101); /* Change color if needed */
+}
+
+  @keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ── Shared “niche” page styles ───────────────────────── */
+.niche-heading {
+  font-size: 144px;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  margin: 7px 0 20px;
+  line-height: 1.1;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: -60px auto 0;
+}
+.video-grid iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  opacity: 0;
+  animation: slideIn 0.6s ease-out forwards;
+}
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+/* ---------- Mobile Responsive Fix ---------- */
+@media (max-width: 768px) {
+  /* Headings */
+  
+
+  .features-heading {
+    font-size: 36px;
+    margin-top: 90px;
+  }
+
+  /* Carousel */
+  .carousel-container {
+    height: auto;
+    flex-direction: column;
+  }
+  .carousel-track-container {
+    width: 100%;
+  }
+  .carousel-slide {
+    min-width: 80%;
+  }
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-btn.prev {
+    left: 20px;   /* small gap from left edge */
+  }
+  .carousel-btn.next {
+    right: 20px;  /* small gap from right edge */
+  }
+
+  /* Counting views section */
+  .subtext {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 55px ;
+    padding-right: 60px;
+    
+  }
+  .main-number {
+    text-align: center;
+    font-size: 60px;
+    margin-right: 90px;
+  }
+  .views {
+    text-align: right;
+    padding-left: 180px;
+    font-size: 20px;
+  }
+
+  /* Floating pics reposition */
+  .floating-pic {
+    width: 60px;
+    height: 60px;
+  }
+
+.pic1 {
+  top: 5px;
+  left: 0%;
+}
+
+.pic2 {
+  top: 30px;
+  left: 70%;
+} 
+
+.pic3 {
+  top: 110px;
+  left: -15%;
+}
+
+.pic4 {
+  top: 130px;
+  left: 55%;
+}
+
+  /* Niche heading */
+  .niche-heading {
+    font-size: 48px;
+  }
+
+  /* Video grid to 1 column */
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .arrow-link {
+    position: fixed;
+    bottom: 150px;  /* Adjust this to control the arrow's vertical position */
+    left: 215px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Make carousel cards fit the screen width */
+  .carousel-slide {
+    min-width: 40%; /* or 90% for even bigger */
+  }
+   
+  /* Make container full width */
+  .carousel-track-container {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+
+  } 
+
+}
+
+@media (max-width: 768px) {
+  .intro-heading {
+    margin-top: 80px;
+    font-size: 75px;
+    line-height: 0.9;
+    text-align: center;
+  }
+  .intro-heading span {
+    display: block; /* stack vertically */
+  }
+}

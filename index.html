@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body>
+  <!-- HEADER (logo now wrapped in a link to index.html) -->
+  <header>
+    <div class="header-content">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="webAssets/Editory Logo.svg" alt="Logo" class="logo" />
+        </a>
+        <!--<p class="email">contacteditory@gmail.com</p>-->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- FIRST BIG TEXT (“Select Niche”) -->
+    <section class="intro">
+      <h1 class="intro-heading">
+  <span class="line1">Select</span>
+  <span class="line2">Niche</span>
+</h1>
+    </section>
+
+    <!-- Carousel -->
+<section class="carousel-container">
+  <button class="carousel-btn prev">&lt;</button>
+  <div class="carousel-track-container">
+    <ul class="carousel-track">
+      <li class="carousel-slide current-slide">
+ 
+    <div class="card">
+      <img src="webAssets/left.jpg" alt="leftmostcard">
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+  <a href="tier1.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/tier1.jpg" alt="tier1">
+      <div class="card-text">Tier 1</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+  <a href="tier2.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/tier2.jpg" alt="tier2">
+      <div class="card-text">Tier 2</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+  <a href="tier3.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/tier3.jpg" alt="tier3">
+      <div class="card-text">Tier 3</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide current-slide">
+  <a href="cashcow.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/cashcow.jpg" alt="cashcow">
+      <div class="card-text">Cash Cow</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+  <a href="documentary.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/documentary.jpg" alt="documentary">
+      <div class="card-text">Documentary</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+  <a href="corporate.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/Corporate.jpg" alt="Corporate">
+      <div class="card-text">Corporate</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+  <a href="shortform.html" class="card-link">
+    <div class="card">
+      <img src="webAssets/shortform.jpg" alt="shortform">
+      <div class="card-text">Short Form</div>
+    </div>
+  </a>
+</li>
+
+<li class="carousel-slide">
+    <div class="card">
+      <img src="webAssets/right.jpg" alt="rightmostcard">
+    </div>
+  </a>
+</li>
+
+      <!-- Add more slides as needed -->
+    </ul>
+  </div>
+  <button class="carousel-btn next">&gt;</button>
+</section>
+
+<!-- SECOND BIG TEXT (“Look at our feature work”) -->
+<section class="features">
+  <h2 class="features-heading">
+    Look at our<br />
+    <a href="#next-section" class="feature-heading">
+    <span class="highlight">feature</a></span> work
+    
+  </h2>
+</section>
+
+<!-- Add the arrow under the feature work -->
+<a href="#next-section" class="arrow-link" id="arrow">
+  <div class="arrow">&#8595;</div>
+</a>
+
+<body></body>
+<section id="next-section">
+  <div class="couting-views">
+    <!-- Floating images behind -->
+  <a href="https://www.youtube.com/@TheAmagiYT" target="_blank" rel="noopener noreferrer">
+      <img src="PP/Amagi.jpg" class="floating-pic pic1" />
+    </a>
+    <a href="https://www.youtube.com/@devincaherly2" target="_blank" rel="noopener noreferrer">
+      <img src="PP/Devin.jpg" class="floating-pic pic2" />
+    </a>
+    <a href="https://www.youtube.com/@kat_hixson" target="_blank" rel="noopener noreferrer">
+      <img src="PP/Kat Hixson.jpg" class="floating-pic pic3" />
+    </a>
+    <a href="https://www.youtube.com/@StokesTwins" target="_blank" rel="noopener noreferrer">
+      <img src="PP/Stoke Twins.jpg  " class="floating-pic pic4" />
+    </a>
+    <div class="views-wrapper"> 
+      <span class="subtext">totaling to</span>
+      <div class="number-line">
+        <span class="main-number" id="counter">0</span>
+        <span class="views">views</span>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
