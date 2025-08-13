@@ -491,6 +491,32 @@ header {
     bottom: 150px;  /* Adjust this to control the arrow's vertical position */
     left: 215px;
   }
+
+  /* Niche Page Style */
+  .niche-heading {
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  margin: 7px 0 20px;
+  line-height: 1.1;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: -28px auto 0;
+}
+.video-grid iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  opacity: 0;
+  animation: slideIn 0.6s ease-out forwards;
+}
 }
 
 @media (max-width: 768px) {
