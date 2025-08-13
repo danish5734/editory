@@ -23,7 +23,9 @@ html {
 body {
   background-color: var(--background-color);
   color: #000000;
+  position: center;
   overflow-x: hidden;
+}
 }
   
 /* --------------------------------------------------
@@ -91,7 +93,6 @@ header {
 }
 .carousel-track-container {
   position: relative;
-  /* overflow: hidden;*/
   /* 3 × 300px cards + 2 × 20px gaps = 940px total */
   width: calc((300px * 3) + (5px * 2));
   height: 100%;
@@ -398,6 +399,11 @@ header {
 @media (max-width: 768px) {
   /* Headings */
   
+  html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+}
 
   .features-heading {
     font-size: 36px;
@@ -409,12 +415,7 @@ header {
     height: auto;
     flex-direction: column;
   }
-  .carousel-track-container {
-    width: 100%;
-  }
-  .carousel-slide {
-    min-width: 80%;
-  }
+
   .card {
     width: 100%;
     height: auto;
@@ -494,6 +495,7 @@ header {
   /* Make carousel cards fit the screen width */
   .carousel-slide {
     min-width: 40%; /* or 90% for even bigger */
+
   }
    
   /* Make container full width */
