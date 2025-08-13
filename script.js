@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
     iframe.style.animationDelay = `${i * 0.2}s`;
   });
 
+
   // Niche card tilt effect
   document.querySelectorAll('.card').forEach(card => {
     const baseRot = (Math.random() - 0.5) * 6;  // ±3°
@@ -65,6 +66,51 @@ window.addEventListener('DOMContentLoaded', () => {
   const nextBtn         = document.querySelector('.carousel-btn.next');
   let currentIndex      = 2;
 
+  let isDragging = false;
+let startX = 0;
+let scrollStart = 0;
+let moved = false; // track if mouse/touch moved
+
+trackContainer.addEventListener('touchstart', startDrag, { passive: true });
+trackContainer.addEventListener('mousedown', startDrag);
+
+trackContainer.addEventListener('touchmove', dragMove, { passive: true });
+trackContainer.addEventListener('mousemove', dragMove);
+
+document.addEventListener('touchend', endDrag); // listen on whole document
+document.addEventListener('mouseup', endDrag);
+document.addEventListener('mouseleave', endDrag);
+
+function startDrag(e) {
+  isDragging = true;
+  moved = false;
+  startX = e.pageX || e.touches[0].pageX;
+  scrollStart = - (slideWidth * currentIndex - centerOffset);
+  carouselTrack.style.transition = 'none'; // disable snap while dragging
+}
+
+function dragMove(e) {
+  if (!isDragging) return;
+  moved = true;
+  const x = e.pageX || e.touches[0].pageX;
+  const moveX = x - startX;
+  carouselTrack.style.transform = `translateX(${scrollStart + moveX}px)`;
+}
+
+
+function endDrag(e) {
+  if (!isDragging) return;
+  isDragging = false;
+
+  if (!moved) return; // treat as a click if no movement
+
+  const movedBy = (e.pageX || (e.changedTouches && e.changedTouches[0].pageX)) - startX;
+  if (movedBy < -50 && currentIndex < slides.length - 2) currentIndex++;
+  if (movedBy > 50 && currentIndex > 1) currentIndex--;
+
+  updateCarousel();
+}
+
   const slideMargin     = 5;
   const slideWidth      = slides[0].getBoundingClientRect().width + slideMargin;
   const containerWidth  = trackContainer.getBoundingClientRect().width;
@@ -95,6 +141,8 @@ window.addEventListener('DOMContentLoaded', () => {
         slide.style.zIndex = '1';
       }
     });
+
+
 
     const translateX = slideWidth * currentIndex - centerOffset;
     carouselTrack.style.transform = `translateX(-${translateX}px)`;
@@ -129,6 +177,19 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initialize
   updateCarousel();
 
+  //this function prevents any links to be clicked or dragged while the carousel is dragged to prevent bugs
+  carouselTrack.querySelectorAll('a').forEach(link => {
+  // Stop native drag behavior
+  link.setAttribute('draggable', 'false');
+  link.addEventListener('dragstart', e => e.preventDefault());
+
+  // Optional: prevent accidental clicks after a drag
+  link.addEventListener('click', e => {
+    if (moved) {  // "moved" is your drag detection flag
+      e.preventDefault(); // don't navigate if it was a drag
+    }
+  });
+});
   // Scroll to hide/show the arrow
   let lastScrollTop = 0; // Keep track of the last scroll position
   const arrow = document.getElementById('arrow'); // Get the arrow element
