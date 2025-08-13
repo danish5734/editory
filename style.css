@@ -26,7 +26,6 @@ body {
   position: center;
   overflow-x: hidden;
 }
-}
   
 /* --------------------------------------------------
    HEADER (logo/email)
@@ -35,6 +34,7 @@ body {
 header {
   width: 100%;
   padding: 20px 0;
+  
   display: flex;
   justify-content: center;
   background-color: var(--background-color);
@@ -42,6 +42,7 @@ header {
 
 .header-content {
   text-align: center;
+  
 }
 
 .logo-container {
@@ -52,6 +53,7 @@ header {
 .logo {
   width: 118px; /* Replace with your real logo */
   height: auto;
+  margin-top: 10px;
   object-fit: contain;
 }
 
